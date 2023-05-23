@@ -1,0 +1,18 @@
+.info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.photo-card {
+    margin: 10px
+}
