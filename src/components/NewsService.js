@@ -14,9 +14,9 @@ export default class NewsService {
     const { data } = await axios.get(
       `${URL}?key=${API_KEY}&q=${this.searchQuery}&image_type=photo&orientation=horizontal&safesearch=true&per_page=40&page=${this.page}`
     );
-    console.log('this.page: ', this.page);
-    console.log(data);
-    console.log(data.totalHits);
+    // console.log('this.page: ', this.page);
+    // console.log(data);
+    // console.log(data.totalHits);
 
     if (this.page === 1 && data.totalHits > 0) {
       Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`);

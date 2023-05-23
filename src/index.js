@@ -25,7 +25,7 @@ function onSubmit(event) {
   const form = event.currentTarget;
 
   const value = form.elements.searchQuery.value.trim();
-  if (value === '') Notiflix.Notify.warning('Введите данные');
+  if (value === '') Notiflix.Notify.warning('No value');
   else {
     newsService.searchQuery = value;
     newsService.resetPage();
@@ -58,7 +58,12 @@ async function getArticlesMarkup() {
       loadMoreBtn.hide();
       return '';
     }
-    if (articles.length === 0) throw new Error('No data');
+    if (articles.length === 0) {
+      Notiflix.Notify.failure(
+        'Sorry, there are no images matching your search query. Please try again.'
+      );
+    }
+    // throw new Error('No data');
 
     return articles.reduce(
       (markup, article) => markup + createMarkup(article),
@@ -108,7 +113,7 @@ function updateNewsList(markup) {
 function clearNewsList() {
   refs.photoWrapper.innerHTML = '';
 }
-// test
+
 function onError(err) {
   // console.error(err);
   Notiflix.Notify.failure(

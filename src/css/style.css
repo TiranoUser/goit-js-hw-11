@@ -1,3 +1,15 @@
+.search-form {
+    background-color: #6767ca;
+    text-align: center;
+    padding: 40px;
+}
+
+.search-form>input,
+.search-form>button {
+    font-size: 25px;
+}
+
+
 .info {
     display: flex;
     justify-content: space-between;
